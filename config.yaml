@@ -1,0 +1,14 @@
+DATASET: '/media/nebula/Databases/Face Database/AFAD/AFAD-Full'
+ANNOTATION: '/media/nebula/Databases/Face Database/AFAD/AFAD-Full/AFAD-Full.txt'
+VAL_RATIO: 0.2
+MODEL: ''
+INPUT_SIZE: 64
+LAYERS: [2, 2, 2, 2]
+NC: 3
+NW: 12
+NE: 60
+BS: 128
+LR: 0.002
+STEP_SIZE: 20
+GAMMA: 0.5
+APEX: True
