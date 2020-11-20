@@ -1,5 +1,5 @@
-# Pytorch_gender_age_estimate
-Train ResNet18 on AFAD dataset for gender and age estimate with Pytorch
+# Pytorch_gender_age_estimation
+Train ResNet18 on AFAD dataset for gender and age estimation with Pytorch
 
 ### Environment
 
@@ -13,6 +13,6 @@ Train ResNet18 on AFAD dataset for gender and age estimate with Pytorch
 
 3. Configure parameters and dataset dictionary in "config.yaml". 
 2. Run "main.py" to train the network.
-3. Run "export.py" to convert the .pt model into onnx format. (a trained model with 93.14% validation gender estimate accuracy has been placed and converted already).
+3. Run "export.py" to convert the .pt model into onnx format. (a trained model with 93.14% validation gender estimation accuracy has been placed and converted already).
 4. Run "image_demo.py" and "video_demo.py" to test the onnx model with a single image or USB camera.
 
