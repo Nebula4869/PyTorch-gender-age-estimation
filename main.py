@@ -101,15 +101,15 @@ def train(model, data_loader, criterion, epoch, optimizer, apex):
         train_writer.add_scalar('gender/acc', batch_gender_acc, global_step)
         train_writer.add_scalar('age/loss', batch_age_loss, global_step)
         train_writer.add_scalar('age/error', batch_age_error, global_step)
-        sys.stdout.write('\rProcess: [{:5.0f}/{:5.0f} ({:2.2f}%)] '
+        sys.stdout.write('\rProcess: [{:5.0f}/{:5.0f} ({:2.2%})] '
                          'Gender loss: {:.4f}/{:.4f} '
-                         'Gender acc: {:.2f}%/{:.2f}% '
+                         'Gender acc: {:.2%}/{:.2%} '
                          'Age loss: {:.4f}/{:.4f} '
                          'Age error: {:.2f}/{:.2f} '
                          'Estimated time: {:.2f}s'.format(
-                            processed_size, dataset_size, 100. * processed_size / dataset_size,
+                            processed_size, dataset_size, processed_size / dataset_size,
                             float(batch_gender_loss), float(train_gender_loss) / processed_size,
-                            100. * float(batch_gender_acc), 100. * float(train_gender_acc) / processed_size,
+                            float(batch_gender_acc), float(train_gender_acc) / processed_size,
                             float(batch_age_loss), float(train_age_loss) / processed_size,
                             float(batch_age_error), train_age_error / processed_size,
                             (time.time() - timer))),
@@ -119,8 +119,8 @@ def train(model, data_loader, criterion, epoch, optimizer, apex):
         timer = time.time()
 
     # Record and display data
-    print('\nTrain Gender Loss: {:.4f} Train Gender Acc: {:.2f}% Train Age Loss: {:.4f} Train Age Error: {:.2f}'.format(
-        train_gender_loss / processed_size, 100. * train_gender_acc / processed_size, train_age_loss / processed_size, train_age_error / processed_size))
+    print('\nTrain Gender Loss: {:.4f} Train Gender Acc: {:.2%} Train Age Loss: {:.4f} Train Age Error: {:.2f}'.format(
+        train_gender_loss / processed_size, train_gender_acc / processed_size, train_age_loss / processed_size, train_age_error / processed_size))
 
 
 def val(model, data_loader, criterion, epoch, save):
@@ -164,8 +164,8 @@ def val(model, data_loader, criterion, epoch, save):
         val_writer.add_scalar('gender/acc', val_gender_acc, epoch * num_steps)
         val_writer.add_scalar('age/loss', val_age_loss, epoch * num_steps)
         val_writer.add_scalar('age/error', val_age_error, epoch * num_steps)
-        print('Val Gender Loss: {:.4f} Val Gender Acc: {:.2f}% Val Age Loss: {:.4f} Val Age Error: {:.2f}'.format(
-            val_gender_loss, 100. * val_gender_acc, val_age_loss, val_age_error))
+        print('Val Gender Loss: {:.4f} Val Gender Acc: {:.2%} Val Age Loss: {:.4f} Val Age Error: {:.2f}'.format(
+            val_gender_loss, val_gender_acc, val_age_loss, val_age_error))
 
         # Save model
         if save and val_gender_acc > best_acc:
