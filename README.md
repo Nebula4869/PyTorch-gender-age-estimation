@@ -1,4 +1,4 @@
-# Pytorch_gender_age_estimation
+# PyTorch-gender-age-estimation
 Train ResNet18 on AFAD dataset for gender and age estimation with Pytorch
 
 ### Environment
