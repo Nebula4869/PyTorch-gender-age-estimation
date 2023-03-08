@@ -1,18 +1,33 @@
-# PyTorch-gender-age-estimation
-Train ResNet18 on AFAD dataset for gender and age estimation with Pytorch
+# Clone
 
-### Environment
+Create personal access token
+User > Settings >  Developer settings > Tokens (classic) > Generate Token
+Tick access levels needed, generate token and save it.
 
-- python==3.6.9
-- Pytorch==1.7.0
-- onnx==1.7.0
-- onnxruntime==1.5.2
-- opencv-python
+- `git clone  https://<user name>@github.com/Ignitarium-AI/PyTorch-gender-age-Resnet18` \
+- `git checkout -b <feature branch>`
 
-### Getting Started
+## Create environment and install requirements
 
-3. Configure parameters and dataset dictionary in "config.yaml". 
-2. Run "main.py" to train the network.
-3. Run "export.py" to convert the .pt model into onnx format. (a trained model with 93.14% validation gender estimation accuracy has been placed and converted already).
-4. Run "image_demo.py" and "video_demo.py" to test the onnx model with a single image or USB camera.
+- `python3.8 -m venv va`
+- `source va/bin/activate`
+- `pip install -r requirements.txt`
 
+### To train model
+
+Configure parameters and dataset dictionary in "config.yaml".
+Run "main.py" to train the network.
+
+- `python main.py`
+
+Run "export.py" to convert the .pt model into onnx format.
+
+- `python export.py`
+
+### To run inference on an image
+
+- `python image_demo.py`
+
+### To run inference on a live video
+
+- `python video_demo.py`
